@@ -460,7 +460,17 @@ async def get_carbon_insights(user_id: str = Depends(get_current_user)):
         "total_emissions": total
     }
 
+# Serve frontend static files if they exist
+frontend_dist_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "dist"))
+print(f"Checking frontend path: {frontend_dist_path}")
+if os.path.exists(frontend_dist_path):
+    print("Frontend path exists. Mounting StaticFiles...")
+    app.mount("/", StaticFiles(directory=frontend_dist_path, html=True), name="frontend")
+else:
+    print(f"WARNING: Frontend path does NOT exist! Current working dir: {os.getcwd()}")
+
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 8000))
     uvicorn.run(app, host="0.0.0.0", port=port)
+

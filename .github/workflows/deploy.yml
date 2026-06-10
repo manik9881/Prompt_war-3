@@ -9,6 +9,7 @@ env:
   PROJECT_ID: sodium-keel-499008-k2
   SERVICE_NAME: eco-carbon-tracker
   REGION: us-central1
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   deploy:
