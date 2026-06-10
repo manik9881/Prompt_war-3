@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  PROJECT_ID: carbontracker-98811
+  PROJECT_ID: sodium-keel-499008-k2
   SERVICE_NAME: eco-carbon-tracker
   REGION: us-central1
 
