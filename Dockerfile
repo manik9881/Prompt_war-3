@@ -33,5 +33,5 @@ COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 # Expose backend port
 EXPOSE 8000
 
-# Run FastAPI using uvicorn
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run FastAPI using uvicorn, reading the Cloud Run PORT environment variable
+CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
