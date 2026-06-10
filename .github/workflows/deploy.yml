@@ -34,4 +34,5 @@ jobs:
           --project ${{ env.PROJECT_ID }} \
           --region ${{ env.REGION }} \
           --allow-unauthenticated \
+          --set-env-vars "DATABASE_URL=${{ secrets.DATABASE_URL }},SUPABASE_URL=${{ secrets.SUPABASE_URL }},SUPABASE_ANON_KEY=${{ secrets.SUPABASE_ANON_KEY }},SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
           --quiet
